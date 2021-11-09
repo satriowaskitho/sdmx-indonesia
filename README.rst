@@ -1,9 +1,8 @@
-Template for the Read the Docs tutorial
+Dokumentasi SDMX Bahasa Indonesia
 =======================================
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
+Dokumentasi ini merupakan hasil terjemahan dari laman `Metadata Technology <https://metadatatechnology.com/about-sdmx.php/>`_
 
-Read the tutorial here:
+Dokumentasi dapat dibaca di sini:
 
-https://docs.readthedocs.io/en/stable/tutorial/
+https://sdmx-indonesia.readthedocs.io/id/latest/
