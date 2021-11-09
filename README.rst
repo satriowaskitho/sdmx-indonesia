@@ -5,4 +5,4 @@ Dokumentasi ini merupakan hasil terjemahan dari laman `Metadata Technology <http
 
 Dokumentasi dapat dibaca di sini:
 
-https://sdmx-indonesia.readthedocs.io/id/latest/
+https://sdmx-indonesia.rtfd.io/id/latest/
