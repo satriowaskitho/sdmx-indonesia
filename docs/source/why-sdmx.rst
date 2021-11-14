@@ -32,3 +32,5 @@ Pengembalian Investasi
 ----------------------
 
 Sering disebutkan, bahwa sulit untuk melakukan justifikasi terhadap investasi pada standar yang spesifik jika hanya digunakan untuk satu hal saja. SDMX dapat melakukan lebih dari sekadar bertindak sebagai format umum untuk bertukar data statistik dan metadata. Jika Kamu menggunakan SDMX sebagai model pada sistem pengumpulan data, *data reporting*, dan diseminasi data, maka akan ada banyak manfaat yang Kamu dapatkan. Semakin banyak Kamu menggunakan kelebihan dari SDMX di sistemmu, semakin banyak manfaat yang akan Kamu peroleh.
+
+.. [#f1] Dalam komputasi, perangkat atau program perangkat lunak dikatakan agnostik atau data agnostik jika metode atau format transmisi data tidak relevan dengan fungsi perangkat atau program. Ini berarti bahwa perangkat atau program dapat menerima data dalam berbagai format atau dari berbagai sumber, dan masih memproses data tersebut secara efektif.
