@@ -1,18 +1,16 @@
 Kenapa Menggunakan SDMX?
 ========================
 
-**SDMX** (*Statistical Data and Metadata eXchange*) menyediakan *metamodel* [#f1]_ untuk mendeskripsikan data dalam cakupan statistik. Asal-usul model SDMX dapat ditelusuri ke dalam model *Generic Statistical Message* (GESMES) [#f2]_, tetapi pada kenyataannya inti dari model SDMX adalah evolusi yang telah terjadi dari waktu ke waktu sejak tahun 1970-an. Setelah peluncuran SDMX pada tahun 2001, model ini telah ditingkatkan secara signifikan dan diimplementasikan sepenuhnya dalam XML (SDMX-ML) dan JSON (untuk mendukung diseminasi data melalui web).
+.. _usecases:
 
-Inisiatif SDMX disponsori oleh tujuh organisasi, di antaranya:
+Mendukung untuk Beberapa *Use Cases*
+------------------------------------
 
-Bank for International Settlements (BIS); European Central Bank (ECB); Eurostat; International Monetary Fund (IMF); Organisation for Economic Co-operation and Development (OECD); United Nations Statistics Division (UNSD); World Bank.
+Pertama, penting untuk diketahui bahwa SDMX dapat memberikan lebih dari sekadar format umum bagi *data collectors* dan *data reporters* yang digunakan dalam pertukaran data dan metadata, meskipun akronimnya menggambarkan sebaliknya.
 
-SDMX mendukung banyak aktivitas statistik dan proses yang mendukung aktivitas tersebut di antaranya:
+Kedua, jangan khawatir tentang bagaimana representasi sintaks dari data dan metadata. Ada banyak *tools* dan aplikasi *open source* yang dapat mengatasi kerumitan ini dan dengan demikian memungkinkan Anda menggunakan SDMX untuk memecahkan masalah tersebut. Misalnya, bagaimana cara menggunakan SDMX di alat statistik favorit Anda seperti SAS, R, atau Excel. Bagaimana membuat situs web diseminasi maupun membangun sistem pengumpulan data yang tangguh.
 
-* *Data collection*— data registrasi dan pencacahan, serta validasi data.
-* *Data reporting* dan *data mapping*.
-* *Data dissemination*— *data discovery, data query,* dan portal data.
-* Repositori metadata struktural untuk manajemen metadata, *query*, dan pencacahan.
+Dan terakhir, perhatikan Model Informasi SDMX dan pahami bagaimana model tersebut dapat mendukung *use cases* yang Anda miliki. Ketika Anda mempelajari model ini (kami akan menjelaskan model ini nanti) kami yakin bahwa Anda akan menyadari bahwa SDMX dapat memenuhi kebutuhan-kebutuhan Anda. Kemudian dengan aplikasi *open source*, Anda juga akan mendapati bahwa mengimplementasikan sistem Anda akan jauh lebih cepat dari apa yang Anda bayangkan sebelumnya.
 
-.. [#f1] *Metamodeling* merupakan pembuatan sekumpulan "konsep" (seperti benda, istilah, dan lain lain.) dalam suatu cakupan tertentu.
-.. [#f2] GESMES merupakan standar UN/EDIFACT.
+Model yang sudah Matang
+-----------------------
