@@ -1,7 +1,7 @@
 Apa itu SDMX?
 =============
 
-**SDMX** (*Statistical Data and Metadata eXchange*) menyediakan *metamodel* [#f1]_ untuk mendeskripsikan data dalam cakupan statistik. Asal-usul model SDMX dapat ditelusuri ke dalam model *Generic Statistical Message* (GESMES) [#f2]_, tetapi pada kenyataannya inti dari model SDMX adalah evolusi yang telah terjadi dari waktu ke waktu sejak tahun 1970-an. Setelah peluncuran SDMX pada tahun 2001, model ini telah ditingkatkan secara signifikan dan diimplementasikan sepenuhnya dalam XML (SDMX-ML) dan JSON (untuk mendukung diseminasi data melalui web).
+**SDMX** (*Statistical Data and Metadata eXchange*) menyediakan *metamodel* [#f1]_ untuk mendeskripsikan data dalam cakupan statistik. Asal-usul model SDMX dapat ditelusuri ke dalam model *Generic Statistical Message* (GESMES) [#f2]_. Pada kenyataannya inti dari model SDMX adalah evolusi yang telah terjadi dari waktu ke waktu sejak tahun 1970-an. Setelah peluncuran SDMX pada tahun 2001, model ini telah ditingkatkan secara signifikan dan diimplementasikan sepenuhnya dalam XML (SDMX-ML) dan JSON (untuk mendukung diseminasi data melalui web).
 
 Inisiatif SDMX disponsori oleh tujuh organisasi, di antaranya:
 
