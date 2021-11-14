@@ -16,12 +16,3 @@ SDMX mendukung banyak aktivitas statistik dan proses yang mendukung aktivitas te
 
 .. [#f1] *Metamodeling* merupakan pembuatan sekumpulan "konsep" (seperti benda, istilah, dan lain lain.) dalam suatu cakupan tertentu.
 .. [#f2] GESMES merupakan standar UN/EDIFACT.
-
-Contents
---------
-
-.. toctree::
-
-   why-sdmx
-   usage
-   api
