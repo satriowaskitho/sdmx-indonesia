@@ -23,5 +23,3 @@ Contents
 .. toctree::
 
    why-sdmx
-   usage
-   api
