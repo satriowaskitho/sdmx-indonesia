@@ -1,8 +1,6 @@
 Penjelasan Singkat Model Informasi SDMX
 =======================================
 
-.. _briefoverview:
-
 Cakupan Permasalahan
 --------------------
 
@@ -34,3 +32,12 @@ Impor Data
 ----------
 
 Institusi menerima data dari banyak organisasi penyedia data, dan dengan demikian format data di setiap dataset bergantung pada organisasi pengirim. Pengimpor data dicatat untuk mendukung dokumentasi ketika terdapat penawaran data. Dalam beberapa situasi, tabel pemetaan perlu didefinisikan untuk memetakan klasifikasi klien ke pemetaan yang digunakan di internal institusi. Terdapat suatu aturan validasi yang ditetapkan untuk memastikan data sesuai dengan apa yang diharapkan. Setiap importir mengimplementasikan logika validasinya sendiri. Terdapat juga validasi tambahan yang digunakan setelah data berada di dalam basis data.
+
+Diseminasi Data
+---------------
+
+Untuk melakukan diseminasi data, tim analisis bisnis menentukan jenis kueri mana yang diperlukan. Kemudian, tim developer menulis kueri basis data untuk mendefinisikan *use cases*. *Use cases* yang didefinisikan memiliki output untuk mengekstrak dataset yang relevan. Tidak ada model formal untuk data, sehingga output sintaks bergantung pada penerima data. Jika klien baru memerlukan format output yang berbeda, tim developer akan menulis kueri basis data baru, atau mereka akan menulis transformasi dari format yang sudah ada.
+
+Situs web dibangun di atas API yang ditentukan oleh tim analisis bisnis, dengan desainer web dan developer *backend* bekerja sama untuk membangun halaman web. Semakin banyak *use cases* yang berkembang, tim developer akan menulis API baru untuk mendukung situs web.
+
+Secara internal, unit lain di dalam organisasi diberikan akses langsung ke tabel basis data. Unit-unit tersebut menulis logika kueri mereka sendiri berdasarkan struktur tabel untuk mendapatkan data dari sistem mereka sendiri.

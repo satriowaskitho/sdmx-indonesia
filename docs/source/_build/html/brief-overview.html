@@ -48,6 +48,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#desain-basis-data">Desain Basis Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#impor-data">Impor Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#diseminasi-data">Diseminasi Data</a></li>
 </ul>
 </li>
 </ul>
@@ -79,7 +80,7 @@
   <section id="penjelasan-singkat-model-informasi-sdmx">
 <h1>Penjelasan Singkat Model Informasi SDMX<a class="headerlink" href="#penjelasan-singkat-model-informasi-sdmx" title="Permalink to this headline"></a></h1>
 <section id="cakupan-permasalahan">
-<span id="briefoverview"></span><h2>Cakupan Permasalahan<a class="headerlink" href="#cakupan-permasalahan" title="Permalink to this headline"></a></h2>
+<h2>Cakupan Permasalahan<a class="headerlink" href="#cakupan-permasalahan" title="Permalink to this headline"></a></h2>
 <section id="pernyataan-masalah-secara-singkat">
 <h3>Pernyataan Masalah Secara Singkat<a class="headerlink" href="#pernyataan-masalah-secara-singkat" title="Permalink to this headline"></a></h3>
 <p>Suatu sistem statistik terdiri dari banyak sub sistem dan komponen. Persoalan utama sistem komputer termasuk sistem statistik adalah sistem —atau dapat disebut perangkat lunak— dibangun secara silo atau setidaknya dibangun dengan komponen yang tidak independen dan tidak dapat digunakan kembali.</p>
@@ -99,6 +100,12 @@
 <section id="impor-data">
 <h2>Impor Data<a class="headerlink" href="#impor-data" title="Permalink to this headline"></a></h2>
 <p>Institusi menerima data dari banyak organisasi penyedia data, dan dengan demikian format data di setiap dataset bergantung pada organisasi pengirim. Pengimpor data dicatat untuk mendukung dokumentasi ketika terdapat penawaran data. Dalam beberapa situasi, tabel pemetaan perlu didefinisikan untuk memetakan klasifikasi klien ke pemetaan yang digunakan di internal institusi. Terdapat suatu aturan validasi yang ditetapkan untuk memastikan data sesuai dengan apa yang diharapkan. Setiap importir mengimplementasikan logika validasinya sendiri. Terdapat juga validasi tambahan yang digunakan setelah data berada di dalam basis data.</p>
+</section>
+<section id="diseminasi-data">
+<h2>Diseminasi Data<a class="headerlink" href="#diseminasi-data" title="Permalink to this headline"></a></h2>
+<p>Untuk melakukan diseminasi data, tim analisis bisnis menentukan jenis kueri mana yang diperlukan. Kemudian, tim developer menulis kueri basis data untuk mendefinisikan <em>use cases</em>. <em>Use cases</em> yang didefinisikan memiliki output untuk mengekstrak dataset yang relevan. Tidak ada model formal untuk data, sehingga output sintaks bergantung pada penerima data. Jika klien baru memerlukan format output yang berbeda, tim developer akan menulis kueri basis data baru, atau mereka akan menulis transformasi dari format yang sudah ada.</p>
+<p>Situs web dibangun di atas API yang ditentukan oleh tim analisis bisnis, dengan desainer web dan developer <em>backend</em> bekerja sama untuk membangun halaman web. Semakin banyak <em>use cases</em> yang berkembang, tim developer akan menulis API baru untuk mendukung situs web.</p>
+<p>Secara internal, unit lain di dalam organisasi diberikan akses langsung ke tabel basis data. Unit-unit tersebut menulis logika kueri mereka sendiri berdasarkan struktur tabel untuk mendapatkan data dari sistem mereka sendiri.</p>
 </section>
 </section>
 
