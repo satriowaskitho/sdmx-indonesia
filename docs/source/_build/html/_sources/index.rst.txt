@@ -23,3 +23,4 @@ Contents
 .. toctree::
 
    why-sdmx
+   brief-overview
