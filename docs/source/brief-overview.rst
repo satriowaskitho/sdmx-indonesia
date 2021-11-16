@@ -4,9 +4,6 @@ Penjelasan Singkat Model Informasi SDMX
 Cakupan Permasalahan
 --------------------
 
-Pernyataan Masalah Secara Singkat
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Suatu sistem statistik terdiri dari banyak sub sistem dan komponen. Persoalan utama sistem komputer termasuk sistem statistik adalah sistem —atau dapat disebut perangkat lunak— dibangun secara silo atau setidaknya dibangun dengan komponen yang tidak independen dan tidak dapat digunakan kembali.
 
 Pertimbangkan alur proses sederhana berikut ini, yaitu alur impor data ke basis data dan alur diseminasi data.
@@ -70,10 +67,10 @@ Tidak ada ketentuan untuk mendukung data yang memiliki cakupan baru. Jika suatu 
 
 Kueri ke basis data membutuhkan banyak *join* tabel yang mengarah ke performa yang buruk. Karena situs web, aplikasi *maintenance*, *subject matter* eksternal dan internal digabung menjadi satu struktur tabel, tentu tidak mungkin untuk meningkatkan performa dengan mudah.
 
-Apakah Ini Khas dan Akan Terus Terjadi?
+Apakah Masalah Ini akan Terus Terjadi?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Penjelasan sebelumnya mungkin melukiskan gambaran yang hampir apokaliptik tentang apa yang bisa terjadi dan kami tidak menyarankan situasi tersebut hadir dalam satu sistem. Kami telah mengamati semua aspek dalam sistem dan kami telah memberikan saran konsultasi tentang pendekatan berbasis model (SDMX).
+Penjelasan sebelumnya mungkin melukiskan gambaran yang hampir apokaliptik tentang apa yang bisa terjadi. Kami tentunya tidak menginginkan situasi tersebut hadir dalam suatu sistem. Kami telah mengamati semua aspek dalam sistem dan kami telah memberikan saran konsultasi tentang pendekatan berbasis model (SDMX).
 
 Terdapat cara yang lain untuk merancang sistem yang digunakan untuk melakukan pengumpulan, pelaporan, diseminasi data dan metadata, serta integrasi dengan *tools* analisis data yang digunakan oleh organisasi. Cara tersebut adalah dengan menggunakan pendekatan berbasis model dan arsitektur komponen yang mendukung model.
 
@@ -93,10 +90,20 @@ Pada dasarnya, model data menentukan ruang lingkup sistem atau standar dalam hal
 * Informasi yang akan dibagi antara proses atau institusi dalam hal objek informasi (misalnya Kode) dan isi objek (misalnya id kode, label kode);
 * Hubungan antar objek informasi.
 
-Agar model menjadi berguna, maka harus memiliki implementasi. Sebagai contoh, harus ada cara untuk mewakili daftar kode tertentu dan kodenya dalam sintaks tertentu seperti XML. Mungkin ada, dan dalam SDMX ada, lebih dari satu cara untuk mewakili contoh tertentu dari objek informasi. Ini adalah poin penting dan ini adalah manfaat utama memiliki model informasi. Representasi sintaks yang berbeda dapat didukung dan jika arsitektur sistem dirancang dengan baik tidak perlu bagi sebagian besar komponen sistem untuk peduli dengan implementasi sintaks: komponen dibangun untuk memahami objek model, bukan sintaks di mana objek-objek ini diimpor atau diekspor.
+Agar model menjadi berguna, maka harus memiliki implementasi. Sebagai contoh, harus ada cara untuk mewakili daftar kode tertentu termasuk kodenya dalam suatu sintaks seperti XML dan hal ini telah ada di dalam SDMX. SDMX memiliki lebih dari satu cara untuk mewakili contoh tertentu dari objek informasi. Ini merupakan poin penting dan menjadi manfaat utama dari model informasi karena representasi sintaks yang berbeda dapat didukung. Jika arsitektur sistem dirancang dengan baik, maka tidak perlu lagi sebagian besar komponen sistem untuk memikirkan implementasi terkait sintaks. Kumpulan komponen dibangun untuk memahami objek model bukan sintaksnya, yang mana objek-objek inilah yang diimpor ataupun diekspor.
 
-Ini, pada dasarnya, pendekatan berbasis model untuk rekayasa sistem. Jelas agar sistem seperti itu bekerja objek dalam model harus direalisasikan sebagai objek yang memiliki perilaku. Komponen perangkat lunak kemudian dapat dibangun yang menerapkan perilaku ini (misalnya mengembalikan Id dan Nama Kode). Yang penting, perilaku ini, untuk sebagian besar, konteks gratis yaitu komponen yang mengembalikan Id Kode dan Nama Kode tidak tahu mengapa potongan-potongan informasi ini diperlukan dan tidak perlu diketahui. Komponen ini hanya melakukan tugasnya untuk melayani Kode.
+Pada dasarnya, hal ini merupakan pendekatan berbasis model yang digunakan untuk *system engineering*. Bekerja dengan objek di dalam suatu model harus direalisasikan sebagai objek juga yang memiliki *behaviour*. Kemudian, komponen perangkat lunak dapat dibangun dengan menerapkan *behaviour* ini (misalnya mengembalikan Id dan Nama Kode). Yang terpenting, *behaviour* ini (untuk sebagian besar) merupakan *context free*, misalnya suatu komponen yang mengembalikan Id Kode dan Nama Kode tidak tahu mengapa potongan-potongan informasi ini diperlukan dan juga tidak perlu tahu. Komponen ini hanya melakukan tugasnya untuk melayani Kode.
 
-Oleh karena itu pendekatan berbasis model untuk rekayasa sistem menghasilkan komponen yang dapat digunakan kembali yang tidak digabungkan dan kohesif: sistem tidak rapuh dan mudah dipertahankan dan ditingkatkan.
+Oleh karena itu, pendekatan berbasis model untuk *system engineering* menghasilkan komponen yang dapat digunakan kembali, yaitu komponen yang tidak memiliki ketergantungan satu dengan yang lain dan kohesif. Sehingga, sistem tidak rapuh dan mudah untuk di- *maintenance* dan dikembangkan.
 
-SDMX memiliki Arsitektur Komponen Umum berdasarkan Model Informasi SDMX dan implementasi open source dari arsitektur ini. Ini tersedia di `SDMX Source <https://www.sdmxsource.org/>`_.
+SDMX memiliki *Common Component Architecture* berdasarkan Model Informasi SDMX dan implementasi *open source* dari arsitektur tersebut. Arsitektur ini tersedia di `SDMX Source <https://www.sdmxsource.org/>`_.
+
+.. image:: images/img4.png
+
+**Dataflow** adalah komponen penting di dalam Model Informasi SDMX. *Dataflow* merupakan konsep yang digunakan untuk menyajikan dan melakukan diseminasi data. Hal tersebut memanfaatkan informasi struktural yang didefinisikan oleh *Data Structure Definition* (DSD), tetapi memungkinkan restriksi lebih lanjut yang akan ditentukan dan hanya digunakan untuk konten yang diizinkan ((**Valid**) **Content Constraint**).
+
+**Data Structure Definition** (DSD) adalah struktur fundamental yang mendefinisikan konten valid dari kumpulan data di dalam dimensi, variabel, konsep, dan kontennya yang valid sebagai variabel (misalnya daftar kode atau tipe data lainnya).
+
+**Provision Agreement** berisi informasi tentang penyediaan data oleh satu **Penyedia Data** untuk satu **Dataflow**. Dalam lingkungan pengumpulan data, hal tersebut dapat berisi tautan ke **Valid Content Constraint** yang selanjutnya membatasi nilai yang diizinkan dan dapat dilaporkan oleh Penyedia Data. Dalam lingkungan Diseminasi Data, hal tersebut dapat ditautkan ke *Registered Data Source* yang mengidentifikasi konten sumber data ((**Aktual**) **Content Constraint**) serta lokasi data dan bagaimana data dapat diambil (misalnya kueri SDMC).
+
+Tiap *Dataflow* dapat dihubungkan ke satu atau lebih **Kategori** dan setiap Kategori dapat dihubungkan ke nol atau lebih *Dataflow*. Koneksi ini mendukung pencarian data dengan topik yang terorganisasi seperti Demografi, Sensus, Kesehatan, maupun Keuangan.

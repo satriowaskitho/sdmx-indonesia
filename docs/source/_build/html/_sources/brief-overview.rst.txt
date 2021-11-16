@@ -4,9 +4,6 @@ Penjelasan Singkat Model Informasi SDMX
 Cakupan Permasalahan
 --------------------
 
-Pernyataan Masalah Secara Singkat
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Suatu sistem statistik terdiri dari banyak sub sistem dan komponen. Persoalan utama sistem komputer termasuk sistem statistik adalah sistem —atau dapat disebut perangkat lunak— dibangun secara silo atau setidaknya dibangun dengan komponen yang tidak independen dan tidak dapat digunakan kembali.
 
 Pertimbangkan alur proses sederhana berikut ini, yaitu alur impor data ke basis data dan alur diseminasi data.
@@ -70,7 +67,7 @@ Tidak ada ketentuan untuk mendukung data yang memiliki cakupan baru. Jika suatu 
 
 Kueri ke basis data membutuhkan banyak *join* tabel yang mengarah ke performa yang buruk. Karena situs web, aplikasi *maintenance*, *subject matter* eksternal dan internal digabung menjadi satu struktur tabel, tentu tidak mungkin untuk meningkatkan performa dengan mudah.
 
-Apakah Ini Khas dan Akan Terus Terjadi?
+Apakah Masalah Ini akan Terus Terjadi?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Penjelasan sebelumnya mungkin melukiskan gambaran yang hampir apokaliptik tentang apa yang bisa terjadi dan kami tidak menyarankan situasi tersebut hadir dalam satu sistem. Kami telah mengamati semua aspek dalam sistem dan kami telah memberikan saran konsultasi tentang pendekatan berbasis model (SDMX).
@@ -80,4 +77,25 @@ Terdapat cara yang lain untuk merancang sistem yang digunakan untuk melakukan pe
 .. [#f1] Kueri ad hoc adalah kueri tunggal yang tidak disertakan dalam *Stored Procedure* dan tidak diparameterisasi atau disiapkan untuk tujuan secara umum. Contohnya: ``var newSqlQuery = "SELECT * FROM table WHERE id = " + myId;``
 
 Pendekatan Berbasis Model
-------------------------
+-------------------------
+
+Dengan menyelaraskan bahasa yang digunakan untuk menjelaskan data dan metadata terkait, sangat mungkin untuk mengintegrasikan sumber data yang berbeda. Hal tersebut juga memungkinkan aplikasi perangkat lunak untuk dapat mengakses beragam dataset menggunakan *common language* terlepas dari produk perangkat lunak yang digunakan untuk menyimpan data.
+
+Solusi SDMX memperkenalkan model data dan metadata internal yang *powerful*. Model Informasi SDMX dibangun dengan menganalisis proses internal banyak lembaga statistik dan bank sentral, serta menyadari bahwa meskipun masing-masing aplikasi lembaga tersebut berbeda, mereka semua melakukan hal yang sama. Mampu menggambarkan data dan metadata yang mendukung aplikasi statistik apa pun dengan cara generik, tujuan tersebut mengarahkan pada kemampuan untuk mengembangkan modul perangkat lunak generik yang dapat memproses data dalam domain statistik apa pun dengan cara yang lazim digunakan.
+
+Model Informasi SDMX adalah model data. Hal itu tidak menentukan *behaviour* (misalnya *behaviour* apa yang harus dimiliki sistem saat memproses Kode) meskipun berbagai spesifikasi mungkin tergolong *high level behaviour* yang spesifik, seperti mengirimkan metadata struktural ke Registri SDMX.
+
+Pada dasarnya, model data menentukan ruang lingkup sistem atau standar dalam hal:
+
+* Informasi yang akan dibagi antara proses atau institusi dalam hal objek informasi (misalnya Kode) dan isi objek (misalnya id kode, label kode);
+* Hubungan antar objek informasi.
+
+Agar model menjadi berguna, maka harus memiliki implementasi. Sebagai contoh, harus ada cara untuk mewakili daftar kode tertentu termasuk kodenya dalam suatu sintaks seperti XML dan hal ini telah ada di dalam SDMX. SDMX memiliki lebih dari satu cara untuk mewakili contoh tertentu dari objek informasi. Ini merupakan poin penting dan menjadi manfaat utama dari model informasi karena representasi sintaks yang berbeda dapat didukung. Jika arsitektur sistem dirancang dengan baik, maka tidak perlu lagi sebagian besar komponen sistem untuk memikirkan implementasi terkait sintaks. Kumpulan komponen dibangun untuk memahami objek model bukan sintaksnya, yang mana objek-objek inilah yang diimpor ataupun diekspor.
+
+Pada dasarnya, hal ini merupakan pendekatan berbasis model yang digunakan untuk *system engineering*. Bekerja dengan objek di dalam suatu model harus direalisasikan sebagai objek juga yang memiliki *behaviour*. Kemudian, komponen perangkat lunak dapat dibangun dengan menerapkan *behaviour* ini (misalnya mengembalikan Id dan Nama Kode). Yang terpenting, *behaviour* ini (untuk sebagian besar) merupakan *context free*, misalnya suatu komponen yang mengembalikan Id Kode dan Nama Kode tidak tahu mengapa potongan-potongan informasi ini diperlukan dan juga tidak perlu tahu. Komponen ini hanya melakukan tugasnya untuk melayani Kode.
+
+Oleh karena itu, pendekatan berbasis model untuk *system engineering* menghasilkan komponen yang dapat digunakan kembali, yaitu komponen yang tidak memiliki ketergantungan satu dengan yang lain dan kohesif. Sehingga, sistem tidak rapuh dan mudah untuk di- *maintenance* dan dikembangkan.
+
+SDMX memiliki *Common Component Architecture* berdasarkan Model Informasi SDMX dan implementasi *open source* dari arsitektur tersebut. Arsitektur ini tersedia di `SDMX Source <https://www.sdmxsource.org/>`_.
+
+.. image:: images/img4.png

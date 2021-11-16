@@ -18,7 +18,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Kenapa Menggunakan SDMX?" href="why-sdmx.html" /> 
+    <link rel="prev" title="Mengapa Menggunakan SDMX?" href="why-sdmx.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,16 +40,15 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="why-sdmx.html">Kenapa Menggunakan SDMX?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-sdmx.html">Mengapa Menggunakan SDMX?</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Penjelasan Singkat Model Informasi SDMX</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cakupan-permasalahan">Cakupan Permasalahan</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pernyataan-masalah-secara-singkat">Pernyataan Masalah Secara Singkat</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#desain-basis-data">Desain Basis Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#impor-data">Impor Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#diseminasi-data">Diseminasi Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pemeliharaan-sistem">Pemeliharaan Sistem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#apa-yang-salah-dengan-pendekatan-ini">Apa yang Salah dengan Pendekatan Ini?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#apakah-ini-khas-dan-akan-terus-terjadi">Apakah Ini Khas dan Akan Terus Terjadi?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apakah-masalah-ini-akan-terus-terjadi">Apakah Masalah Ini akan Terus Terjadi?</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#pendekatan-berbasis-model">Pendekatan Berbasis Model</a></li>
@@ -85,8 +84,6 @@
 <h1>Penjelasan Singkat Model Informasi SDMX<a class="headerlink" href="#penjelasan-singkat-model-informasi-sdmx" title="Permalink to this headline"></a></h1>
 <section id="cakupan-permasalahan">
 <h2>Cakupan Permasalahan<a class="headerlink" href="#cakupan-permasalahan" title="Permalink to this headline"></a></h2>
-<section id="pernyataan-masalah-secara-singkat">
-<h3>Pernyataan Masalah Secara Singkat<a class="headerlink" href="#pernyataan-masalah-secara-singkat" title="Permalink to this headline"></a></h3>
 <p>Suatu sistem statistik terdiri dari banyak sub sistem dan komponen. Persoalan utama sistem komputer termasuk sistem statistik adalah sistem —atau dapat disebut perangkat lunak— dibangun secara silo atau setidaknya dibangun dengan komponen yang tidak independen dan tidak dapat digunakan kembali.</p>
 <p>Pertimbangkan alur proses sederhana berikut ini, yaitu alur impor data ke basis data dan alur diseminasi data.</p>
 <p><strong>Alur Impor Data</strong></p>
@@ -94,7 +91,6 @@
 <p><strong>Alur Diseminasi Data</strong></p>
 <img alt="_images/img2.png" src="_images/img2.png" />
 <p>Berikut adalah beberapa kelemahan yang kemungkinan terdapat di dalam sistem yang saat ini mendukung proses tersebut.</p>
-</section>
 <section id="desain-basis-data">
 <h3>Desain Basis Data<a class="headerlink" href="#desain-basis-data" title="Permalink to this headline"></a></h3>
 <p>Skema basis data dirancang secara internal sehingga dapat menampung semua data yang dikerjakan di dalam suatu departemen (selanjutnya akan disebut institusi). Institusi dapat memutuskan untuk mengadopsi basis data Oracle, dan tabel basis data disesuaikan untuk menyimpan data spesifik yang relevan sesuai dengan cakupan tempat institusi bekerja. Tidak perlu menggunakan lebih dari 2 bahasa, setiap tabel berisi label khusus untuk setiap bahasa di mana pun data tersebut muncul.</p>
@@ -127,8 +123,8 @@
 <p>Tidak ada ketentuan untuk mendukung data yang memiliki cakupan baru. Jika suatu unit diminta untuk menyimpan jenis data baru, maka perubahan pada kode dan modifikasi basis data akan diperlukan. Karena tingkat ketergantungan di dalam sistem yang tinggi, perubahan ini membutuhkan banyak <em>testing</em> tambahan.</p>
 <p>Kueri ke basis data membutuhkan banyak <em>join</em> tabel yang mengarah ke performa yang buruk. Karena situs web, aplikasi <em>maintenance</em>, <em>subject matter</em> eksternal dan internal digabung menjadi satu struktur tabel, tentu tidak mungkin untuk meningkatkan performa dengan mudah.</p>
 </section>
-<section id="apakah-ini-khas-dan-akan-terus-terjadi">
-<h3>Apakah Ini Khas dan Akan Terus Terjadi?<a class="headerlink" href="#apakah-ini-khas-dan-akan-terus-terjadi" title="Permalink to this headline"></a></h3>
+<section id="apakah-masalah-ini-akan-terus-terjadi">
+<h3>Apakah Masalah Ini akan Terus Terjadi?<a class="headerlink" href="#apakah-masalah-ini-akan-terus-terjadi" title="Permalink to this headline"></a></h3>
 <p>Penjelasan sebelumnya mungkin melukiskan gambaran yang hampir apokaliptik tentang apa yang bisa terjadi dan kami tidak menyarankan situasi tersebut hadir dalam satu sistem. Kami telah mengamati semua aspek dalam sistem dan kami telah memberikan saran konsultasi tentang pendekatan berbasis model (SDMX).</p>
 <p>Terdapat cara yang lain untuk merancang sistem yang digunakan untuk melakukan pengumpulan, pelaporan, diseminasi data dan metadata, serta integrasi dengan <em>tools</em> analisis data yang digunakan oleh organisasi. Cara tersebut adalah dengan menggunakan pendekatan berbasis model dan arsitektur komponen yang mendukung model.</p>
 <dl class="footnote brackets">
@@ -140,6 +136,19 @@
 </section>
 <section id="pendekatan-berbasis-model">
 <h2>Pendekatan Berbasis Model<a class="headerlink" href="#pendekatan-berbasis-model" title="Permalink to this headline"></a></h2>
+<p>Dengan menyelaraskan bahasa yang digunakan untuk menjelaskan data dan metadata terkait, sangat mungkin untuk mengintegrasikan sumber data yang berbeda. Hal tersebut juga memungkinkan aplikasi perangkat lunak untuk dapat mengakses beragam dataset menggunakan <em>common language</em> terlepas dari produk perangkat lunak yang digunakan untuk menyimpan data.</p>
+<p>Solusi SDMX memperkenalkan model data dan metadata internal yang <em>powerful</em>. Model Informasi SDMX dibangun dengan menganalisis proses internal banyak lembaga statistik dan bank sentral, serta menyadari bahwa meskipun masing-masing aplikasi lembaga tersebut berbeda, mereka semua melakukan hal yang sama. Mampu menggambarkan data dan metadata yang mendukung aplikasi statistik apa pun dengan cara generik, tujuan tersebut mengarahkan pada kemampuan untuk mengembangkan modul perangkat lunak generik yang dapat memproses data dalam domain statistik apa pun dengan cara yang lazim digunakan.</p>
+<p>Model Informasi SDMX adalah model data. Hal itu tidak menentukan <em>behaviour</em> (misalnya <em>behaviour</em> apa yang harus dimiliki sistem saat memproses Kode) meskipun berbagai spesifikasi mungkin tergolong <em>high level behaviour</em> yang spesifik, seperti mengirimkan metadata struktural ke Registri SDMX.</p>
+<p>Pada dasarnya, model data menentukan ruang lingkup sistem atau standar dalam hal:</p>
+<ul class="simple">
+<li><p>Informasi yang akan dibagi antara proses atau institusi dalam hal objek informasi (misalnya Kode) dan isi objek (misalnya id kode, label kode);</p></li>
+<li><p>Hubungan antar objek informasi.</p></li>
+</ul>
+<p>Agar model menjadi berguna, maka harus memiliki implementasi. Sebagai contoh, harus ada cara untuk mewakili daftar kode tertentu termasuk kodenya dalam suatu sintaks seperti XML dan hal ini telah ada di dalam SDMX. SDMX memiliki lebih dari satu cara untuk mewakili contoh tertentu dari objek informasi. Ini merupakan poin penting dan menjadi manfaat utama dari model informasi karena representasi sintaks yang berbeda dapat didukung. Jika arsitektur sistem dirancang dengan baik, maka tidak perlu lagi sebagian besar komponen sistem untuk memikirkan implementasi terkait sintaks. Kumpulan komponen dibangun untuk memahami objek model bukan sintaksnya, yang mana objek-objek inilah yang diimpor ataupun diekspor.</p>
+<p>Pada dasarnya, hal ini merupakan pendekatan berbasis model yang digunakan untuk <em>system engineering</em>. Bekerja dengan objek di dalam suatu model harus direalisasikan sebagai objek juga yang memiliki <em>behaviour</em>. Kemudian, komponen perangkat lunak dapat dibangun dengan menerapkan <em>behaviour</em> ini (misalnya mengembalikan Id dan Nama Kode). Yang terpenting, <em>behaviour</em> ini (untuk sebagian besar) merupakan <em>context free</em>, misalnya suatu komponen yang mengembalikan Id Kode dan Nama Kode tidak tahu mengapa potongan-potongan informasi ini diperlukan dan juga tidak perlu tahu. Komponen ini hanya melakukan tugasnya untuk melayani Kode.</p>
+<p>Oleh karena itu, pendekatan berbasis model untuk <em>system engineering</em> menghasilkan komponen yang dapat digunakan kembali, yaitu komponen yang tidak memiliki ketergantungan satu dengan yang lain dan kohesif. Sehingga, sistem tidak rapuh dan mudah untuk di- <em>maintenance</em> dan dikembangkan.</p>
+<p>SDMX memiliki <em>Common Component Architecture</em> berdasarkan Model Informasi SDMX dan implementasi <em>open source</em> dari arsitektur tersebut. Arsitektur ini tersedia di <a class="reference external" href="https://www.sdmxsource.org/">SDMX Source</a>.</p>
+<img alt="_images/img4.png" src="_images/img4.png" />
 </section>
 </section>
 
@@ -147,7 +156,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="why-sdmx.html" class="btn btn-neutral float-left" title="Kenapa Menggunakan SDMX?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="why-sdmx.html" class="btn btn-neutral float-left" title="Mengapa Menggunakan SDMX?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

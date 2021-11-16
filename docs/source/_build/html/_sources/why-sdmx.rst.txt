@@ -1,9 +1,9 @@
-Kenapa Menggunakan SDMX?
+Mengapa Menggunakan SDMX?
 ========================
 
 .. _usecases:
 
-Mendukung untuk Beberapa *Use Cases*
+Dukungan untuk Beberapa *Use Cases*
 ------------------------------------
 
 Pertama, penting untuk diketahui bahwa SDMX dapat memberikan lebih dari sekadar format umum bagi *data collectors* dan *data reporters* yang digunakan dalam pertukaran data dan metadata, meskipun akronimnya menggambarkan sebaliknya.
