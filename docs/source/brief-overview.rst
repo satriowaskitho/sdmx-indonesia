@@ -132,7 +132,7 @@ Dukungan SDMX untuk Pemrosesan
 +---------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Proses                          | Konsep                            | Role                                                                                                                                        |
 +=================================+===================================+=============================================================================================================================================+
-| Mendaftarkan data yang tersedia | *Provision Agreement*;            | - Pengumpulan data dapat diotomatisasi oleh penyedia data yang mendaftarkan lokasi data baru yang akan disajikan.                             |
+| Mendaftarkan data yang tersedia | *Provision Agreement*;            | - Pengumpulan data dapat diotomatisasi oleh penyedia data yang mendaftarkan lokasi data baru yang akan disajikan.                           |
 |                                 |                                   |                                                                                                                                             |
 |                                 | *Data Registration*.              |                                                                                                                                             |
 +---------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
@@ -142,7 +142,7 @@ Dukungan SDMX untuk Pemrosesan
 |                                 |                                   |                                                                                                                                             |
 |                                 |                                   | - Terhadap dua kasus tersebut, data yang terkait dengan *Provision Agreement* akan membantu identifikasi yang dilakukan oleh penyedia Data. |
 +---------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| *Read dataset*                  | *Data Structure Definition* serta | - Data dapat bervariasi ke dalam berbagai format dan *reader* khusus untuk format ini tentu diperlukan;                                       |
+| *Read dataset*                  | *Data Structure Definition* serta | - Data dapat bervariasi ke dalam berbagai format dan *reader* khusus untuk format ini tentu diperlukan;                                     |
 |                                 | Konsep dan Daftar Kode terkait.   |                                                                                                                                             |
-|                                 |                                   | - *Reader* mungkin memerlukan akses ke *Data Structure Definition* untuk melakukan fungsi ini.                                                |
+|                                 |                                   | - *Reader* mungkin memerlukan akses ke *Data Structure Definition* untuk melakukan fungsi ini.                                              |
 +---------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
