@@ -45,13 +45,20 @@
 <li class="toctree-l2"><a class="reference internal" href="#cakupan-permasalahan">Cakupan Permasalahan</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#desain-basis-data">Desain Basis Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#impor-data">Impor Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#diseminasi-data">Diseminasi Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diseminasi-data-1">Diseminasi Data (1)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pemeliharaan-sistem">Pemeliharaan Sistem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#apa-yang-salah-dengan-pendekatan-ini">Apa yang Salah dengan Pendekatan Ini?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#apakah-masalah-ini-akan-terus-terjadi">Apakah Masalah Ini akan Terus Terjadi?</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#pendekatan-berbasis-model">Pendekatan Berbasis Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beberapa-use-cases-yang-didukung-oleh-model">Beberapa <em>Use Cases</em> yang Didukung oleh Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-collection"><em>Data Collection</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-load"><em>Database Load</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diseminasi-data-2">Diseminasi Data (2)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dukungan-sdmx-untuk-pemrosesan">Dukungan SDMX untuk Pemrosesan</a></li>
 </ul>
 </li>
 </ul>
@@ -100,8 +107,8 @@
 <h3>Impor Data<a class="headerlink" href="#impor-data" title="Permalink to this headline"></a></h3>
 <p>Institusi menerima data dari banyak penyedia data lain, dan dengan demikian format data di setiap dataset bergantung pada si pengirim data. Pengimpor data dicatat untuk mendukung dokumentasi ketika terdapat penawaran data. Dalam beberapa situasi, tabel pemetaan perlu didefinisikan untuk memetakan klasifikasi pengguna data ke pemetaan yang digunakan di internal institusi. Terdapat suatu aturan validasi yang ditetapkan untuk memastikan data sesuai dengan apa yang diharapkan. Setiap importir mengimplementasikan logika validasinya sendiri. Terdapat juga validasi tambahan yang digunakan setelah data berada di dalam basis data.</p>
 </section>
-<section id="diseminasi-data">
-<h3>Diseminasi Data<a class="headerlink" href="#diseminasi-data" title="Permalink to this headline"></a></h3>
+<section id="diseminasi-data-1">
+<h3>Diseminasi Data (1)<a class="headerlink" href="#diseminasi-data-1" title="Permalink to this headline"></a></h3>
 <p>Untuk melakukan diseminasi data, tim analisis bisnis menentukan jenis kueri mana yang diperlukan. Kemudian, tim developer menulis kueri basis data untuk mendefinisikan <em>use cases</em>. <em>Use cases</em> yang didefinisikan memiliki output untuk mengekstrak dataset yang relevan. Tidak ada model yang baku untuk data, sehingga output sintaks bergantung pada penerima data. Jika pengguna data memerlukan format output yang berbeda, tim developer akan menulis kueri basis data baru atau menulis transformasi dari format yang sudah ada.</p>
 <p>Situs web dibangun di atas API yang ditentukan oleh tim analisis bisnis, dengan desainer web dan developer <em>backend</em> bekerja sama untuk membangun halaman web. Semakin banyak <em>use cases</em> yang berkembang, tim developer akan menulis API baru untuk mendukung situs web.</p>
 <p>Secara internal, unit lain di dalam institusi diberikan akses langsung ke tabel basis data. Unit-unit tersebut menulis logika kueri mereka sendiri berdasarkan struktur tabel untuk mendapatkan data dari sistem mereka sendiri.</p>
@@ -125,7 +132,7 @@
 </section>
 <section id="apakah-masalah-ini-akan-terus-terjadi">
 <h3>Apakah Masalah Ini akan Terus Terjadi?<a class="headerlink" href="#apakah-masalah-ini-akan-terus-terjadi" title="Permalink to this headline"></a></h3>
-<p>Penjelasan sebelumnya mungkin melukiskan gambaran yang hampir apokaliptik tentang apa yang bisa terjadi dan kami tidak menyarankan situasi tersebut hadir dalam satu sistem. Kami telah mengamati semua aspek dalam sistem dan kami telah memberikan saran konsultasi tentang pendekatan berbasis model (SDMX).</p>
+<p>Penjelasan sebelumnya mungkin melukiskan gambaran yang hampir apokaliptik tentang apa yang bisa terjadi. Kami tentunya tidak menginginkan situasi tersebut hadir dalam suatu sistem. Kami telah mengamati semua aspek dalam sistem dan kami telah memberikan saran konsultasi tentang pendekatan berbasis model (SDMX).</p>
 <p>Terdapat cara yang lain untuk merancang sistem yang digunakan untuk melakukan pengumpulan, pelaporan, diseminasi data dan metadata, serta integrasi dengan <em>tools</em> analisis data yang digunakan oleh organisasi. Cara tersebut adalah dengan menggunakan pendekatan berbasis model dan arsitektur komponen yang mendukung model.</p>
 <dl class="footnote brackets">
 <dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -149,6 +156,67 @@
 <p>Oleh karena itu, pendekatan berbasis model untuk <em>system engineering</em> menghasilkan komponen yang dapat digunakan kembali, yaitu komponen yang tidak memiliki ketergantungan satu dengan yang lain dan kohesif. Sehingga, sistem tidak rapuh dan mudah untuk di- <em>maintenance</em> dan dikembangkan.</p>
 <p>SDMX memiliki <em>Common Component Architecture</em> berdasarkan Model Informasi SDMX dan implementasi <em>open source</em> dari arsitektur tersebut. Arsitektur ini tersedia di <a class="reference external" href="https://www.sdmxsource.org/">SDMX Source</a>.</p>
 <img alt="_images/img4.png" src="_images/img4.png" />
+<p><strong>Dataflow</strong> adalah komponen penting di dalam Model Informasi SDMX. <em>Dataflow</em> merupakan konsep yang digunakan untuk menyajikan dan melakukan diseminasi data. Hal tersebut memanfaatkan informasi struktural yang didefinisikan oleh <em>Data Structure Definition</em> (DSD), tetapi memungkinkan restriksi lebih lanjut yang akan ditentukan dan hanya digunakan untuk konten yang diizinkan ((<strong>Valid</strong>) <strong>Content Constraint</strong>).</p>
+<p><strong>Data Structure Definition</strong> (DSD) adalah struktur fundamental yang mendefinisikan konten valid dari kumpulan data di dalam dimensi, variabel, konsep, dan kontennya yang valid sebagai variabel (misalnya daftar kode atau tipe data lainnya).</p>
+<p><strong>Provision Agreement</strong> berisi informasi tentang penyediaan data oleh satu <strong>Penyedia Data</strong> untuk satu <strong>Dataflow</strong>. Dalam lingkungan pengumpulan data, hal tersebut dapat berisi tautan ke <strong>Valid Content Constraint</strong> yang selanjutnya membatasi nilai yang diizinkan dan dapat dilaporkan oleh Penyedia Data. Dalam lingkungan Diseminasi Data, hal tersebut dapat ditautkan ke <em>Registered Data Source</em> yang mengidentifikasi konten sumber data ((<strong>Aktual</strong>) <strong>Content Constraint</strong>) serta lokasi data dan bagaimana data dapat diambil (misalnya kueri SDMC).</p>
+<p>Tiap <em>Dataflow</em> dapat dihubungkan ke satu atau lebih <strong>Kategori</strong> dan setiap Kategori dapat dihubungkan ke nol atau lebih <em>Dataflow</em>. Koneksi ini mendukung pencarian data dengan topik yang terorganisasi seperti Demografi, Sensus, Kesehatan, maupun Keuangan.</p>
+</section>
+<section id="beberapa-use-cases-yang-didukung-oleh-model">
+<h2>Beberapa <em>Use Cases</em> yang Didukung oleh Model<a class="headerlink" href="#beberapa-use-cases-yang-didukung-oleh-model" title="Permalink to this headline"></a></h2>
+<section id="data-collection">
+<h3><em>Data Collection</em><a class="headerlink" href="#data-collection" title="Permalink to this headline"></a></h3>
+<img alt="_images/img5.png" src="_images/img5.png" />
+</section>
+<section id="database-load">
+<h3><em>Database Load</em><a class="headerlink" href="#database-load" title="Permalink to this headline"></a></h3>
+<img alt="_images/img6.png" src="_images/img6.png" />
+</section>
+<section id="diseminasi-data-2">
+<h3>Diseminasi Data (2)<a class="headerlink" href="#diseminasi-data-2" title="Permalink to this headline"></a></h3>
+<img alt="_images/img7.png" src="_images/img7.png" />
+</section>
+</section>
+<section id="dukungan-sdmx-untuk-pemrosesan">
+<h2>Dukungan SDMX untuk Pemrosesan<a class="headerlink" href="#dukungan-sdmx-untuk-pemrosesan" title="Permalink to this headline"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 17%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Proses</p></th>
+<th class="head"><p>Konsep</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mendaftarkan data yang tersedia</p></td>
+<td><p><em>Provision Agreement</em>;</p>
+<p><em>Data Registration</em>.</p>
+</td>
+<td><p>Pengumpulan data dapat diotomatisasi oleh penyedia data yang mendaftarkan lokasi data baru yang akan disajikan.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Menerima/Mengumpulkan data</p></td>
+<td><p><em>Provision Agreement</em>;</p>
+<p><em>Data Registration</em>.</p>
+</td>
+<td><ul class="simple">
+<li><p>Aplikasi dapat menginformasikan tentang data pendaftaran baru dan data tersebut dapat diperoleh;</p></li>
+<li><p>Sebagai alternatif, data dapat dikirim secara langsung ke <em>data collector</em> (misalnya melalui e-mail, dll);</p></li>
+<li><p>Terhadap dua kasus tersebut, data yang terkait dengan <em>Provision Agreement</em> akan membantu identifikasi yang dilakukan oleh penyedia Data.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><em>Read dataset</em></p></td>
+<td><p><em>Data Structure Definition</em> serta
+Konsep dan Daftar Kode terkait.</p></td>
+<td><p>Data dapat bervariasi ke dalam berbagai format dan <em>reader</em> khusus untuk format ini tentu diperlukan.</p>
+<p><em>Reader</em> mungkin memerlukan akses ke <em>Data Structure Definition</em> untuk melakukan fungsi ini.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 

@@ -30,8 +30,8 @@ Impor Data
 
 Institusi menerima data dari banyak penyedia data lain, dan dengan demikian format data di setiap dataset bergantung pada si pengirim data. Pengimpor data dicatat untuk mendukung dokumentasi ketika terdapat penawaran data. Dalam beberapa situasi, tabel pemetaan perlu didefinisikan untuk memetakan klasifikasi pengguna data ke pemetaan yang digunakan di internal institusi. Terdapat suatu aturan validasi yang ditetapkan untuk memastikan data sesuai dengan apa yang diharapkan. Setiap importir mengimplementasikan logika validasinya sendiri. Terdapat juga validasi tambahan yang digunakan setelah data berada di dalam basis data.
 
-Diseminasi Data
-^^^^^^^^^^^^^^^
+Diseminasi Data (1)
+^^^^^^^^^^^^^^^^^^^
 
 Untuk melakukan diseminasi data, tim analisis bisnis menentukan jenis kueri mana yang diperlukan. Kemudian, tim developer menulis kueri basis data untuk mendefinisikan *use cases*. *Use cases* yang didefinisikan memiliki output untuk mengekstrak dataset yang relevan. Tidak ada model yang baku untuk data, sehingga output sintaks bergantung pada penerima data. Jika pengguna data memerlukan format output yang berbeda, tim developer akan menulis kueri basis data baru atau menulis transformasi dari format yang sudah ada.
 
@@ -70,7 +70,7 @@ Kueri ke basis data membutuhkan banyak *join* tabel yang mengarah ke performa ya
 Apakah Masalah Ini akan Terus Terjadi?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Penjelasan sebelumnya mungkin melukiskan gambaran yang hampir apokaliptik tentang apa yang bisa terjadi dan kami tidak menyarankan situasi tersebut hadir dalam satu sistem. Kami telah mengamati semua aspek dalam sistem dan kami telah memberikan saran konsultasi tentang pendekatan berbasis model (SDMX).
+Penjelasan sebelumnya mungkin melukiskan gambaran yang hampir apokaliptik tentang apa yang bisa terjadi. Kami tentunya tidak menginginkan situasi tersebut hadir dalam suatu sistem. Kami telah mengamati semua aspek dalam sistem dan kami telah memberikan saran konsultasi tentang pendekatan berbasis model (SDMX).
 
 Terdapat cara yang lain untuk merancang sistem yang digunakan untuk melakukan pengumpulan, pelaporan, diseminasi data dan metadata, serta integrasi dengan *tools* analisis data yang digunakan oleh organisasi. Cara tersebut adalah dengan menggunakan pendekatan berbasis model dan arsitektur komponen yang mendukung model.
 
@@ -99,3 +99,50 @@ Oleh karena itu, pendekatan berbasis model untuk *system engineering* menghasilk
 SDMX memiliki *Common Component Architecture* berdasarkan Model Informasi SDMX dan implementasi *open source* dari arsitektur tersebut. Arsitektur ini tersedia di `SDMX Source <https://www.sdmxsource.org/>`_.
 
 .. image:: images/img4.png
+
+**Dataflow** adalah komponen penting di dalam Model Informasi SDMX. *Dataflow* merupakan konsep yang digunakan untuk menyajikan dan melakukan diseminasi data. Hal tersebut memanfaatkan informasi struktural yang didefinisikan oleh *Data Structure Definition* (DSD), tetapi memungkinkan restriksi lebih lanjut yang akan ditentukan dan hanya digunakan untuk konten yang diizinkan ((**Valid**) **Content Constraint**).
+
+**Data Structure Definition** (DSD) adalah struktur fundamental yang mendefinisikan konten valid dari kumpulan data di dalam dimensi, variabel, konsep, dan kontennya yang valid sebagai variabel (misalnya daftar kode atau tipe data lainnya).
+
+**Provision Agreement** berisi informasi tentang penyediaan data oleh satu **Penyedia Data** untuk satu **Dataflow**. Dalam lingkungan pengumpulan data, hal tersebut dapat berisi tautan ke **Valid Content Constraint** yang selanjutnya membatasi nilai yang diizinkan dan dapat dilaporkan oleh Penyedia Data. Dalam lingkungan Diseminasi Data, hal tersebut dapat ditautkan ke *Registered Data Source* yang mengidentifikasi konten sumber data ((**Aktual**) **Content Constraint**) serta lokasi data dan bagaimana data dapat diambil (misalnya kueri SDMC).
+
+Tiap *Dataflow* dapat dihubungkan ke satu atau lebih **Kategori** dan setiap Kategori dapat dihubungkan ke nol atau lebih *Dataflow*. Koneksi ini mendukung pencarian data dengan topik yang terorganisasi seperti Demografi, Sensus, Kesehatan, maupun Keuangan.
+
+Beberapa *Use Cases* yang Didukung oleh Model
+---------------------------------------------
+
+*Data Collection*
+^^^^^^^^^^^^^^^^^
+
+.. image:: images/img5.png
+
+*Database Load*
+^^^^^^^^^^^^^^^
+
+.. image:: images/img6.png
+
+Diseminasi Data (2)
+^^^^^^^^^^^^^^^^^^^
+
+.. image:: images/img7.png
+
+Dukungan SDMX untuk Pemrosesan
+------------------------------
+
++---------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Proses                          | Konsep                            | Role                                                                                                                                        |
++=================================+===================================+=============================================================================================================================================+
+| Mendaftarkan data yang tersedia | *Provision Agreement*;            | Pengumpulan data dapat diotomatisasi oleh penyedia data yang mendaftarkan lokasi data baru yang akan disajikan.                             |
+|                                 |                                   |                                                                                                                                             |
+|                                 | *Data Registration*.              |                                                                                                                                             |
++---------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Menerima/Mengumpulkan data      | *Provision Agreement*;            | - Aplikasi dapat menginformasikan tentang data pendaftaran baru dan data tersebut dapat diperoleh;                                          |
+|                                 |                                   |                                                                                                                                             |
+|                                 | *Data Registration*.              | - Sebagai alternatif, data dapat dikirim secara langsung ke *data collector* (misalnya melalui e-mail, dll);                                |
+|                                 |                                   |                                                                                                                                             |
+|                                 |                                   | - Terhadap dua kasus tersebut, data yang terkait dengan *Provision Agreement* akan membantu identifikasi yang dilakukan oleh penyedia Data. |
++---------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| *Read dataset*                  | *Data Structure Definition* serta | Data dapat bervariasi ke dalam berbagai format dan *reader* khusus untuk format ini tentu diperlukan.                                       |
+|                                 | Konsep dan Daftar Kode terkait.   |                                                                                                                                             |
+|                                 |                                   | *Reader* mungkin memerlukan akses ke *Data Structure Definition* untuk melakukan fungsi ini.                                                |
++---------------------------------+-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
