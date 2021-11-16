@@ -22,22 +22,81 @@ Pertimbangkan alur proses sederhana berikut ini, yaitu alur impor data ke basis 
 Berikut adalah beberapa kelemahan yang kemungkinan terdapat di dalam sistem yang saat ini mendukung proses tersebut.
 
 Desain Basis Data
------------------
+^^^^^^^^^^^^^^^^^
 
 Skema basis data dirancang secara internal sehingga dapat menampung semua data yang dikerjakan di dalam suatu departemen (selanjutnya akan disebut institusi). Institusi dapat memutuskan untuk mengadopsi basis data Oracle, dan tabel basis data disesuaikan untuk menyimpan data spesifik yang relevan sesuai dengan cakupan tempat institusi bekerja. Tidak perlu menggunakan lebih dari 2 bahasa, setiap tabel berisi label khusus untuk setiap bahasa di mana pun data tersebut muncul.
 
 Ada satu tabel basis data yang besar berisi nilai observasi untuk setiap dataset. Ada banyak tabel basis data terkait yang berisi informasi lebih lanjut tentang pengamatan. Tabel tertaut digunakan untuk memfasilitasi pemfilteran saat membuat kueri basis data. Data dan informasi di dalam tabel tersebut berguna untuk menyusun hasil kueri yang akan disajikan kepada pengguna.
 
 Impor Data
-----------
+^^^^^^^^^^
 
-Institusi menerima data dari banyak organisasi penyedia data, dan dengan demikian format data di setiap dataset bergantung pada organisasi pengirim. Pengimpor data dicatat untuk mendukung dokumentasi ketika terdapat penawaran data. Dalam beberapa situasi, tabel pemetaan perlu didefinisikan untuk memetakan klasifikasi klien ke pemetaan yang digunakan di internal institusi. Terdapat suatu aturan validasi yang ditetapkan untuk memastikan data sesuai dengan apa yang diharapkan. Setiap importir mengimplementasikan logika validasinya sendiri. Terdapat juga validasi tambahan yang digunakan setelah data berada di dalam basis data.
+Institusi menerima data dari banyak penyedia data lain, dan dengan demikian format data di setiap dataset bergantung pada si pengirim data. Pengimpor data dicatat untuk mendukung dokumentasi ketika terdapat penawaran data. Dalam beberapa situasi, tabel pemetaan perlu didefinisikan untuk memetakan klasifikasi pengguna data ke pemetaan yang digunakan di internal institusi. Terdapat suatu aturan validasi yang ditetapkan untuk memastikan data sesuai dengan apa yang diharapkan. Setiap importir mengimplementasikan logika validasinya sendiri. Terdapat juga validasi tambahan yang digunakan setelah data berada di dalam basis data.
 
 Diseminasi Data
----------------
+^^^^^^^^^^^^^^^
 
-Untuk melakukan diseminasi data, tim analisis bisnis menentukan jenis kueri mana yang diperlukan. Kemudian, tim developer menulis kueri basis data untuk mendefinisikan *use cases*. *Use cases* yang didefinisikan memiliki output untuk mengekstrak dataset yang relevan. Tidak ada model formal untuk data, sehingga output sintaks bergantung pada penerima data. Jika klien baru memerlukan format output yang berbeda, tim developer akan menulis kueri basis data baru, atau mereka akan menulis transformasi dari format yang sudah ada.
+Untuk melakukan diseminasi data, tim analisis bisnis menentukan jenis kueri mana yang diperlukan. Kemudian, tim developer menulis kueri basis data untuk mendefinisikan *use cases*. *Use cases* yang didefinisikan memiliki output untuk mengekstrak dataset yang relevan. Tidak ada model yang baku untuk data, sehingga output sintaks bergantung pada penerima data. Jika pengguna data memerlukan format output yang berbeda, tim developer akan menulis kueri basis data baru atau menulis transformasi dari format yang sudah ada.
 
 Situs web dibangun di atas API yang ditentukan oleh tim analisis bisnis, dengan desainer web dan developer *backend* bekerja sama untuk membangun halaman web. Semakin banyak *use cases* yang berkembang, tim developer akan menulis API baru untuk mendukung situs web.
 
-Secara internal, unit lain di dalam organisasi diberikan akses langsung ke tabel basis data. Unit-unit tersebut menulis logika kueri mereka sendiri berdasarkan struktur tabel untuk mendapatkan data dari sistem mereka sendiri.
+Secara internal, unit lain di dalam institusi diberikan akses langsung ke tabel basis data. Unit-unit tersebut menulis logika kueri mereka sendiri berdasarkan struktur tabel untuk mendapatkan data dari sistem mereka sendiri.
+
+Pemeliharaan Sistem
+^^^^^^^^^^^^^^^^^^^
+
+Sistem ini menggabungkan kedua data, termasuk metadata yang diperlukan untuk memahami data. Aplikasi internal dibangun untuk memberi akses pengguna ke informasi pencarian seperti klasifikasi. Pengguna lain juga diizinkan untuk memodifikasi dan menambahkan informasi.
+
+Dalam beberapa situasi, tidak ada antarmuka pengguna untuk jenis informasi tertentu, sehingga pengguna harus menggunakan kueri untuk mengakses basis data secara langsung. Dalam beberapa kasus, satu-satunya cara untuk memodifikasi jenis metadata tertentu adalah dengan memodifikasi basis data secara langsung.
+
+Apa yang Salah dengan Pendekatan Ini?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pendekatan ini memberikan contoh yang baik dari sistem yang sangat memiliki ketergantungan satu dengan yang lain di hampir setiap titik. Sistem yang tidak independen berarti bahwa mengubah satu aspek sistem memiliki dampak di seluruh sistem secara keseluruhan. Sistem yang saling memiliki ketergantungan memiliki ketahanan yang rendah untuk berubah dan biaya pemeliharaan yang tinggi dalam hal waktu dan uang.
+
+Contoh pertama dari tingkat ketergantungan yang tinggi adalah skema basis data itu sendiri, yang desainnya digabungkan dengan dataset dan *use cases* pada saat melakukan desain. Setiap perubahan skema akan berdampak pada situs web, semua output untuk setiap pengguna data, dan karena basis data ini ditanyakan oleh unit lain, itu juga akan mempengaruhi semua pengguna data internal. Pengguna data internal juga dihubungkan ke platform Oracle.
+
+*Backend API* digabungkan sesuai persyaratan situs web dan aplikasi *maintenance* yang ada. Karena kueri basis data telah dibangun untuk melayani API ini, kueri tersebut juga digabungkan sesuai dengan persyaratan. Karena situs web dibangun dengan langsung memanggil *backend API*, situs web digabungkan sesuai dengan bahasa pemrograman tempat sistem dibangun. Setiap perubahan terhadap persyaratan berdampak pada API tersebut dan setiap perubahan pada API memengaruhi situs web.
+
+Tiap data dari *subject matter* (importir data) digabungkan menjadi format yang sesuai dengan datanya masing-masing. Jika *subject matter* (klien) mengubah format data mereka, ini akan berdampak pada pemrosesan terhadap data *subject matter* tersebut. Tiap format yang memiliki logika impornya masing-masing dapat menghasilkan *bugs* di beberapa data *subject matter* yang tidak ada di tempat lain (data hanya dimiliki oleh satu *subject matter* tersebut). Hal ini akan mengarah pada *high testing overhead* karena terdapat sedikit logika yang digunakan bersama-sama di antara tiap-tiap *subject matter*. Ketika format impor yang baru diperlukan, maka beban pemeliharaan akan meningkat.
+
+Tidak ada model internal yang dapat mengarahkan kueri ad hoc [#f1]_ untuk ditulis sesuai kebutuhan agar mendukung *subject matter* internal, *subject matter* eksternal, situs web, dan aplikasi *maintenance*. Hal ini menyebabkan banyak API memiliki duplikasi logika dari waktu ke waktu sehingga sebagian kode menjadi kurang terstruktur dan menghasilkan *Spaghetti Code*. Aplikasi menjadi lebih kompleks untuk di- *maintenance* dan jauh lebih rentan terhadap *bugs*. Hal tersebut disebabkan karena perubahan pada satu bagian aplikasi dapat memiliki dampak yang tidak diinginkan pada bagian aplikasi yang tampaknya tidak terkait.
+
+Tidak ada ketentuan untuk mengubah platform basis data (DBMS). Jika suatu institusi lebih menyukai SQL Server daripada Oracle, maka akan ada beban pemeliharaan yang sangat besar untuk menyesuaikan semua logika kueri. Skrip migrasi perlu ditulis untuk memigrasikan data dan semua kode perangkat lunak perlu dimodifikasi.
+
+Aplikasi yang dibangun untuk melihat dan memelihara metadata pendukung akan menjadi beban *maintenance*, termasuk DBMS dan desain basis data. Pengenalan jenis metadata baru atau memodifikasi metadata yang telah ada tidak hanya membutuhkan perubahan basis data, tetapi juga modifikasi pada aplikasi *maintenance*.
+
+Tidak ada ketentuan untuk mendukung data yang memiliki cakupan baru. Jika suatu unit diminta untuk menyimpan jenis data baru, maka perubahan pada kode dan modifikasi basis data akan diperlukan. Karena tingkat ketergantungan di dalam sistem yang tinggi, perubahan ini membutuhkan banyak *testing* tambahan.
+
+Kueri ke basis data membutuhkan banyak *join* tabel yang mengarah ke performa yang buruk. Karena situs web, aplikasi *maintenance*, *subject matter* eksternal dan internal digabung menjadi satu struktur tabel, tentu tidak mungkin untuk meningkatkan performa dengan mudah.
+
+Apakah Ini Khas dan Akan Terus Terjadi?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Penjelasan sebelumnya mungkin melukiskan gambaran yang hampir apokaliptik tentang apa yang bisa terjadi dan kami tidak menyarankan situasi tersebut hadir dalam satu sistem. Kami telah mengamati semua aspek dalam sistem dan kami telah memberikan saran konsultasi tentang pendekatan berbasis model (SDMX).
+
+Terdapat cara yang lain untuk merancang sistem yang digunakan untuk melakukan pengumpulan, pelaporan, diseminasi data dan metadata, serta integrasi dengan *tools* analisis data yang digunakan oleh organisasi. Cara tersebut adalah dengan menggunakan pendekatan berbasis model dan arsitektur komponen yang mendukung model.
+
+.. [#f1] Kueri ad hoc adalah kueri tunggal yang tidak disertakan dalam *Stored Procedure* dan tidak diparameterisasi atau disiapkan untuk tujuan secara umum. Contohnya: ``var newSqlQuery = "SELECT * FROM table WHERE id = " + myId;``
+
+Pendekatan Berbasis Model
+-------------------------
+
+Dengan menyelaraskan bahasa yang digunakan untuk menjelaskan data dan metadata terkait, sangat mungkin untuk mengintegrasikan sumber data yang berbeda. Hal tersebut juga memungkinkan aplikasi perangkat lunak untuk dapat mengakses beragam dataset menggunakan *common language* terlepas dari produk perangkat lunak yang digunakan untuk menyimpan data.
+
+Solusi SDMX memperkenalkan model data dan metadata internal yang *powerful*. Model Informasi SDMX dibangun dengan menganalisis proses internal banyak lembaga statistik dan bank sentral, serta menyadari bahwa meskipun masing-masing aplikasi lembaga tersebut berbeda, mereka semua melakukan hal yang sama. Mampu menggambarkan data dan metadata yang mendukung aplikasi statistik apa pun dengan cara generik, tujuan tersebut mengarahkan pada kemampuan untuk mengembangkan modul perangkat lunak generik yang dapat memproses data dalam domain statistik apa pun dengan cara yang lazim digunakan.
+
+Model Informasi SDMX adalah model data. Hal itu tidak menentukan *behaviour* (misalnya *behaviour* apa yang harus dimiliki sistem saat memproses Kode) meskipun berbagai spesifikasi mungkin tergolong *high level behaviour* yang spesifik, seperti mengirimkan metadata struktural ke Registri SDMX.
+
+Pada dasarnya, model data menentukan ruang lingkup sistem atau standar dalam hal:
+
+* Informasi yang akan dibagi antara proses atau institusi dalam hal objek informasi (misalnya Kode) dan isi objek (misalnya id kode, label kode);
+* Hubungan antar objek informasi.
+
+Agar model menjadi berguna, maka harus memiliki implementasi. Sebagai contoh, harus ada cara untuk mewakili daftar kode tertentu dan kodenya dalam sintaks tertentu seperti XML. Mungkin ada, dan dalam SDMX ada, lebih dari satu cara untuk mewakili contoh tertentu dari objek informasi. Ini adalah poin penting dan ini adalah manfaat utama memiliki model informasi. Representasi sintaks yang berbeda dapat didukung dan jika arsitektur sistem dirancang dengan baik tidak perlu bagi sebagian besar komponen sistem untuk peduli dengan implementasi sintaks: komponen dibangun untuk memahami objek model, bukan sintaks di mana objek-objek ini diimpor atau diekspor.
+
+Ini, pada dasarnya, pendekatan berbasis model untuk rekayasa sistem. Jelas agar sistem seperti itu bekerja objek dalam model harus direalisasikan sebagai objek yang memiliki perilaku. Komponen perangkat lunak kemudian dapat dibangun yang menerapkan perilaku ini (misalnya mengembalikan Id dan Nama Kode). Yang penting, perilaku ini, untuk sebagian besar, konteks gratis yaitu komponen yang mengembalikan Id Kode dan Nama Kode tidak tahu mengapa potongan-potongan informasi ini diperlukan dan tidak perlu diketahui. Komponen ini hanya melakukan tugasnya untuk melayani Kode.
+
+Oleh karena itu pendekatan berbasis model untuk rekayasa sistem menghasilkan komponen yang dapat digunakan kembali yang tidak digabungkan dan kohesif: sistem tidak rapuh dan mudah dipertahankan dan ditingkatkan.
+
+SDMX memiliki Arsitektur Komponen Umum berdasarkan Model Informasi SDMX dan implementasi open source dari arsitektur ini. Ini tersedia di `SDMX Source <https://www.sdmxsource.org/>`_.
