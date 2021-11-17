@@ -24,3 +24,8 @@ Daftar Isi
 
    why-sdmx
    brief-overview
+   sdmx-structural
+   sdmx-data
+   sdmx-data-formats
+   sdmx-reference
+

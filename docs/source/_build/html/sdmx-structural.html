@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Struktur SDMX &mdash; SDMX Indonesia 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data" href="sdmx-data.html" />
+    <link rel="prev" title="Penjelasan Singkat Model Informasi SDMX" href="brief-overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SDMX Indonesia
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="why-sdmx.html">Mengapa Menggunakan SDMX?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="brief-overview.html">Penjelasan Singkat Model Informasi SDMX</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Struktur SDMX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#terminologi">Terminologi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#maintainable"><em>Maintainable</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifiable"><em>Identifiable</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#referensi-struktur">Referensi Struktur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#skema-kategori">Skema Kategori</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kategorisasi">Kategorisasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#daftar-kode">Daftar Kode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#skema-konsep">Skema Konsep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constraint"><em>Constraint</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-structure-definition-dsd"><em>Data Structure Definition</em> (DSD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dataflow"><em>Dataflow</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#daftar-kode-hierarkis"><em>Daftar Kode Hierarkis</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metadata-structure-definition-msd"><em>Metadata Structure Definition</em> (MSD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metadataflow"><em>Metadataflow</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#skema-organisasi">Skema Organisasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proses">Proses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#provision-agreement"><em>Provision Agreement</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reporting-taxonomy"><em>Reporting Taxonomy</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-set"><em>Structure Set</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#registration"><em>Registration</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sdmx-data.html">Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdmx-data-formats.html">Format Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdmx-reference.html">Metadata Referensi SDMX</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SDMX Indonesia</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Struktur SDMX</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sdmx-structural.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="struktur-sdmx">
+<h1>Struktur SDMX<a class="headerlink" href="#struktur-sdmx" title="Permalink to this headline"></a></h1>
+<section id="terminologi">
+<h2>Terminologi<a class="headerlink" href="#terminologi" title="Permalink to this headline"></a></h2>
+<section id="maintainable">
+<h3><em>Maintainable</em><a class="headerlink" href="#maintainable" title="Permalink to this headline"></a></h3>
+<p>Semua struktur yang di- <em>submit</em> atau dijadikan kueri dari registri adalah struktur yang <em>maintainable</em>. <em>Maintainable</em> mungkin saja berisi sub-struktur, tetapi <em>maintainable</em> adalah tingkatan tertinggi dari <em>containership</em>. <em>Maintainable</em> tidak dapat digunakan ke dalam jenis struktur lain dan strukturnya tidak dapat di- <em>submit</em> ke registri kecuali mereka adalah <em>maintainable</em> atau didefinisikan ke dalam <em>maintainable</em>. Hal ini mungkin merupakan pernyataan yang agak kompleks dan akan lebih mudah jika dijelaskan menggunakan contoh secara nyata:</p>
+<ul class="simple">
+<li><p>Daftar kode adalah struktur yang <em>maintainable</em> dan dengan demikian dapat di- <em>submit</em> ke <em>Fusion Registry</em>;</p></li>
+<li><p>Daftar kode dapat berisi kode yang tidak <em>maintainable</em>.</p></li>
+<li><p>Daftar kode tidak memiliki tipe struktur <em>parent</em> dan tidak dapat berisi Daftar Kode lainnya;</p></li>
+<li><p>Kode tidak dapat di- <em>submit</em> ke registri dengan sendirinya. Mereka harus didefinisikan ke dalam Daftar Kode;</p></li>
+</ul>
+<p>Jadi, struktur yang <em>maintainable</em> dapat dianggap sebagai wadah informasi. Informasi tidak bisa di- <em>maintain</em> di luar <em>parent</em>-nya yang <em>maintainable</em>, maka istilah itu disebut <em>maintainable</em>.</p>
+<p>Struktur yang <em>maintainable</em> memiliki referensi ke <em>maintenance agency</em> yang bertindak sebagai ‘pemilik’ struktur. Hal tersebut merupakan <em>mandatory version</em>, secara bawaan menjadi 1.0 dan <em>mandatory identifier</em>. Kombinasi dari jenis struktur, Id agensi, Id, dan versi dapat digunakan untuk mengidentifikasi struktur yang <em>maintainable</em> secara unik di SDMX.</p>
+<p>Semua jenis struktur yang <em>maintainable</em> dalam SDMX tercantum di bawah ini:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#skema-kategori"><span class="std std-ref">Skema Kategori</span></a></p></li>
+<li><p><a class="reference internal" href="#kategorisasi"><span class="std std-ref">Kategorisasi</span></a></p></li>
+<li><p><a class="reference internal" href="#daftar-kode"><span class="std std-ref">Daftar Kode</span></a></p></li>
+<li><p><a class="reference internal" href="#skema-konsep"><span class="std std-ref">Skema Konsep</span></a></p></li>
+<li><p><a class="reference internal" href="#constraint"><span class="std std-ref">Constraint</span></a></p></li>
+<li><p><a class="reference internal" href="#data-structure-definition-dsd"><span class="std std-ref">Data Structure Definition (DSD)</span></a></p></li>
+<li><p><a class="reference internal" href="#dataflow"><span class="std std-ref">Dataflow</span></a></p></li>
+<li><p><a class="reference internal" href="#daftar-kode-hierarkis"><span class="std std-ref">Daftar Kode Hierarkis</span></a></p></li>
+<li><p><a class="reference internal" href="#metadata-structure-definition-msd"><span class="std std-ref">Metadata Structure Definition (MSD)</span></a></p></li>
+<li><p><a class="reference internal" href="#metadataflow"><span class="std std-ref">Metadataflow</span></a></p></li>
+<li><p><a class="reference internal" href="#skema-organisasi"><span class="std std-ref">Skema Organisasi</span></a></p></li>
+<li><p><a class="reference internal" href="#reporting-taxonomy"><span class="std std-ref">Reporting Taxonomy</span></a></p></li>
+<li><p><a class="reference internal" href="#proses"><span class="std std-ref">Proses</span></a></p></li>
+<li><p><a class="reference internal" href="#structure-set"><span class="std std-ref">Structure Set</span></a></p></li>
+<li><p><a class="reference internal" href="#provision-agreement"><span class="std std-ref">Provision Agreement</span></a></p></li>
+</ul>
+<img alt="_images/structuremodel.png" src="_images/structuremodel.png" />
+<p>Menampilkan model UML dari Tipe Struktur SDMX.</p>
+</section>
+<section id="identifiable">
+<h3><em>Identifiable</em><a class="headerlink" href="#identifiable" title="Permalink to this headline"></a></h3>
+<p>Struktur yang <em>identifiable</em> adalah struktur yang dapat diidentifikasi secara unik di dalam SDMX dengan menggunakan URN.</p>
+<p>URN (<em>Uniform Resource Name</em>) adalah bentuk khusus dari URI (<em>Uniform Resource Identifier</em>). URI adalah serangkaian karakter yang digunakan untuk mengidentifikasi nama dari <em>web resource</em>. URL digunakan untuk mengidentifikasi artefak SDMX tertentu secara unik.</p>
+<p>SDMX mendefinisikan sintaks URN dan setiap URN dibangun dengan menggabungkan jenis struktur, lembaga pemeliharaan, versi struktur, dan id struktur.</p>
+<p>Contoh URN untuk Daftar Kode diberikan di bawah ini:</p>
+<img alt="_images/urn1.png" src="_images/urn1.png" />
+<p>Memperlihatkan sintaks URN dengan struktur yang <em>maintainable</em>.</p>
+<p>Semua struktur yang <em>maintainable</em> adalah struktur yang <em>identifiable</em>, karena semuanya memiliki jenis struktur, id agensi, id, dan versinya masing-masing. Ini berarti setiap struktur yang <em>maintainable</em> dapat diidentifikasi secara unik di dalam SDMX menggunakan sintaks URN.</p>
+<p>Ada juga struktur yang dapat diidentifikasi di dalam SDMX tetapi tidak termasuk <em>maintainable</em>. Jika struktur tersebut termasuk <em>identifiable</em>, maka pasti memiliki <em>mandatory</em> id. Jika struktur tersebut tidak <em>maintainable</em>, maka ia harus selalu berada di dalam cakupan <em>maintainable</em>. Oleh karena itu, <em>maintainable parent</em> digunakan untuk bisa mendapatkan URN. Contoh <em>identifiable</em> yang tidak termasuk <em>maintainable</em> adalah Kode yang berada di dalam Daftar Kode. Gambaran sintaks URN untuk sebuah kode ditunjukkan di bawah ini. Cukup sederhana untuk melampirkan/memasangkan id kode ke akhir Daftar Kode dari URN.</p>
+<img alt="_images/urn2.png" src="_images/urn2.png" />
+<p>Memperlihatkan sintaks URN untuk struktur yang <em>identifiable</em>.</p>
+</section>
+</section>
+<section id="referensi-struktur">
+<h2>Referensi Struktur<a class="headerlink" href="#referensi-struktur" title="Permalink to this headline"></a></h2>
+</section>
+<section id="skema-kategori">
+<span id="id1"></span><h2>Skema Kategori<a class="headerlink" href="#skema-kategori" title="Permalink to this headline"></a></h2>
+</section>
+<section id="kategorisasi">
+<span id="id2"></span><h2>Kategorisasi<a class="headerlink" href="#kategorisasi" title="Permalink to this headline"></a></h2>
+</section>
+<section id="daftar-kode">
+<span id="id3"></span><h2>Daftar Kode<a class="headerlink" href="#daftar-kode" title="Permalink to this headline"></a></h2>
+</section>
+<section id="skema-konsep">
+<span id="id4"></span><h2>Skema Konsep<a class="headerlink" href="#skema-konsep" title="Permalink to this headline"></a></h2>
+</section>
+<section id="constraint">
+<span id="id5"></span><h2><em>Constraint</em><a class="headerlink" href="#constraint" title="Permalink to this headline"></a></h2>
+</section>
+<section id="data-structure-definition-dsd">
+<span id="id6"></span><h2><em>Data Structure Definition</em> (DSD)<a class="headerlink" href="#data-structure-definition-dsd" title="Permalink to this headline"></a></h2>
+</section>
+<section id="dataflow">
+<span id="id7"></span><h2><em>Dataflow</em><a class="headerlink" href="#dataflow" title="Permalink to this headline"></a></h2>
+</section>
+<section id="daftar-kode-hierarkis">
+<span id="id8"></span><h2><em>Daftar Kode Hierarkis</em><a class="headerlink" href="#daftar-kode-hierarkis" title="Permalink to this headline"></a></h2>
+</section>
+<section id="metadata-structure-definition-msd">
+<span id="id9"></span><h2><em>Metadata Structure Definition</em> (MSD)<a class="headerlink" href="#metadata-structure-definition-msd" title="Permalink to this headline"></a></h2>
+</section>
+<section id="metadataflow">
+<span id="id10"></span><h2><em>Metadataflow</em><a class="headerlink" href="#metadataflow" title="Permalink to this headline"></a></h2>
+</section>
+<section id="skema-organisasi">
+<span id="id11"></span><h2>Skema Organisasi<a class="headerlink" href="#skema-organisasi" title="Permalink to this headline"></a></h2>
+</section>
+<section id="proses">
+<span id="id12"></span><h2>Proses<a class="headerlink" href="#proses" title="Permalink to this headline"></a></h2>
+</section>
+<section id="provision-agreement">
+<span id="id13"></span><h2><em>Provision Agreement</em><a class="headerlink" href="#provision-agreement" title="Permalink to this headline"></a></h2>
+</section>
+<section id="reporting-taxonomy">
+<span id="id14"></span><h2><em>Reporting Taxonomy</em><a class="headerlink" href="#reporting-taxonomy" title="Permalink to this headline"></a></h2>
+</section>
+<section id="structure-set">
+<span id="id15"></span><h2><em>Structure Set</em><a class="headerlink" href="#structure-set" title="Permalink to this headline"></a></h2>
+</section>
+<section id="registration">
+<h2><em>Registration</em><a class="headerlink" href="#registration" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="brief-overview.html" class="btn btn-neutral float-left" title="Penjelasan Singkat Model Informasi SDMX" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sdmx-data.html" class="btn btn-neutral float-right" title="Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Satrio Waskitho.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
